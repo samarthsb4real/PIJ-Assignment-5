@@ -14,7 +14,10 @@ public class Main {
             System.out.println("1. Circle");
             System.out.println("2. Rectangle");
             System.out.println("3. Square");
-            System.out.println("4. Exit");
+            System.out.println("4. Sphere");
+            System.out.println("5. Cylinder");
+            System.out.println("6. Equilateral Pyramid");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -41,6 +44,25 @@ public class Main {
                     shape = new Square(side);
                     break;
                 case 4:
+                    System.out.print("Enter the radius of the sphere: ");
+                    double sphereRadius = sc.nextDouble();
+                    volumeShape = new Sphere(sphereRadius);
+                    break;
+                case 5:
+                    System.out.print("Enter the radius of the cylinder: ");
+                    double cylinderRadius = sc.nextDouble();
+                    System.out.print("Enter the height of the cylinder: ");
+                    double height = sc.nextDouble();
+                    volumeShape = new Cylinder(cylinderRadius, height);
+                    break;
+                case 6:
+                    System.out.print("Enter the base side of the equilateral pyramid: ");
+                    double baseSide = sc.nextDouble();
+                    System.out.print("Enter the height of the equilateral pyramid: ");
+                    double pyramidHeight = sc.nextDouble();
+                    volumeShape = new EquilateralPyramid(baseSide, pyramidHeight);
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     System.exit(0);
                     break;
@@ -53,6 +75,15 @@ public class Main {
                 System.out.println("Area: " + shape.calculateArea());
                 System.out.println("Perimeter: " + shape.calculatePerimeter());
             }
+
+            if (volumeShape != null) {
+                if (volumeShape instanceof Shape) {
+                    System.out.println("Surface Area: " + ((Shape) volumeShape).calculateArea());
+                }
+                System.out.println("Volume: " + volumeShape.calculateVolume());
+            }
+            sc.close();
         }
+        
     }
 }
