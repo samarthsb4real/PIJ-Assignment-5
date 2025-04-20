@@ -1,5 +1,5 @@
-// Name: Disha Deepak Gupta
-// PRN: 24070126513
+// Name: Samarth Bhadane
+// PRN: 24070126503
 // Batch: A2
 
 import java.util.Scanner;
